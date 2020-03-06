@@ -1,6 +1,20 @@
-#include <iostream>
+ #include <iostream>
+#include <vector>
+#include <queue>
+#include <unordered_map>
+#include <climits>
+#include <algorithm>
+#include <cmath>
+#include <bitset>
+#include <cstdio>
+#include <cstring>
+#include <stack>
+#include <iomanip>
+#include <set>
+#include <map>
 
 using namespace std;
+
 
 bool compare(int a,int b)
 {
@@ -23,6 +37,24 @@ void BubbleSort(int n,int arr[])
 	}
 }
 
+void InsertionSort(int n,int arr[])
+{
+	int divider=1;
+
+	while(divider<n)
+	{
+		for(int i=divider;i>0;i--)
+		{
+			if(compare(arr[i],arr[i-1]))
+			{
+				swap(arr[i],arr[i-1]);
+			}else{
+				break;
+			}
+		}
+		divider++;
+	}
+}
 int main(){
 
 	int n;
@@ -34,10 +66,16 @@ int main(){
 		cin>>arr[i];
 	}
 	BubbleSort(n,arr);
+	cout<<"BubbleSort....."<<endl;
 	for(int i=0;i<n;i++)
 	{
 		cout<<arr[i]<<" ";
 	}
-
+	InsertionSort(n,arr);
+	cout<<"InsertionSort...."<<endl;
+	for(int i=0;i<n;i++)
+	{
+		cout<<arr[i]<<" ";
+	}
 	return 0;
 }
