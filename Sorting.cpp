@@ -45,7 +45,7 @@ void InsertionSort(int n,int arr[])
 	{
 		for(int i=divider;i>0;i--)
 		{
-			if(compare(arr[i],arr[i-1]))
+			if(compare(arr[i-1],arr[i]))
 			{
 				swap(arr[i],arr[i-1]);
 			}else{
@@ -53,6 +53,23 @@ void InsertionSort(int n,int arr[])
 			}
 		}
 		divider++;
+	}
+}
+
+void SelectionSort(int n,int arr[])
+{
+	int firstPos=0;
+
+	while(firstPos<n-1)
+	{
+		for(int i=firstPos+1;i<n;i++)
+		{
+			if(arr[firstPos]>arr[i])
+			{
+				swap(arr[firstPos],arr[i]);
+			}
+		}
+		firstPos++;
 	}
 }
 int main(){
@@ -71,11 +88,23 @@ int main(){
 	{
 		cout<<arr[i]<<" ";
 	}
+	cout<<endl;
+
 	InsertionSort(n,arr);
 	cout<<"InsertionSort...."<<endl;
 	for(int i=0;i<n;i++)
 	{
 		cout<<arr[i]<<" ";
 	}
+	cout<<endl;
+
+	SelectionSort(n,arr);
+	cout<<"SelectionSort...."<<endl;
+	for(int i=0;i<n;i++)
+	{
+		cout<<arr[i]<<" ";
+	}
+	cout<<endl;
+
 	return 0;
 }
