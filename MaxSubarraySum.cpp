@@ -58,6 +58,27 @@ int KadensAlgo(int n,int arr[])
 
 	return maxsum;
 }
+
+void MaxSubarraySum2(int n,int arr[])
+{
+	int max = INT_MIN;
+
+	for(int i = 0;i<n;i++){
+
+		int sum = 0;
+
+		for(int j=i;j<n;j++){
+			sum+=arr[j];
+
+			if(max<sum){
+				max = sum;
+			}
+		}
+
+	}
+
+	cout<<"Max subarray value is "<<max<<endl;
+}
 int main() {
 
 	int n;
@@ -71,5 +92,6 @@ int main() {
 	MaxSubarraySum(n,arr);
 	int ans=KadensAlgo(n,arr);
 	cout<<ans<<endl;
+	MaxSubarraySum2(n,arr);
 	return 0;
 }
