@@ -42,6 +42,22 @@ void MaxSubarraySum(int n,int arr[])
 	cout<<"Maximum Sum = "<<MaxSum<<endl;
 
 }
+
+int KadensAlgo(int n,int arr[])
+{
+
+	int maxsum=arr[0];
+	int currsum=arr[0];
+
+	for(int i=1;i<n;i++)
+	{
+		currsum=max(currsum+arr[i],arr[i]);
+
+		maxsum=max(maxsum,currsum);
+	}
+
+	return maxsum;
+}
 int main() {
 
 	int n;
@@ -53,6 +69,7 @@ int main() {
 		cin>>arr[i];
 	}
 	MaxSubarraySum(n,arr);
-
+	int ans=KadensAlgo(n,arr);
+	cout<<ans<<endl;
 	return 0;
 }
